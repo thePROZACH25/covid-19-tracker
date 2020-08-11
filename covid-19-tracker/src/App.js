@@ -10,6 +10,7 @@ import InfoBox from "./components/InfoBox";
 import Map from "./components/Map";
 import Table from "./components/Table";
 import { sortData } from "./util";
+import LineGraph from "./components/LineGraph"
 import "./App.css";
 
 function App() {
@@ -73,8 +74,6 @@ function App() {
               onChange={onCountryChange}
               value={country}
             >
-              {/* Loop through all the countries 
-            and show a drop down list of options */}
               <MenuItem value="worldwide">Worldwide</MenuItem>
               {countries.map((country) => (
                 <MenuItem value={country.value}>{country.name}</MenuItem>
@@ -92,7 +91,7 @@ function App() {
           <InfoBox
             title="Recovered"
             cases={countryInfo.todayRecovered}
-            total={countryInfo.recoverd}
+            total={countryInfo.recovered}
           />
           <InfoBox
             title="Deaths"
@@ -109,6 +108,7 @@ function App() {
           <h3>Live cases by Country</h3>
           <Table countries={tableData} />
           <h3>Worldwide new cases</h3>
+          <LineGraph />
           {/* Graph */}
         </CardContent>
       </Card>
